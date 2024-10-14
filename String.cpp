@@ -422,26 +422,26 @@ ostream& operator<<(std::ostream& os, const String& str)
 	os << str.data;
 	return os;
 }
-//String operator+(const char* lhs, const String& rhs)
-//{
-//	int lhsLen = strlen(lhs);
-//	int rhsLen = rhs.getLength();
-//
-//	String result;
-//	result.reSize(lhsLen + rhsLen + 1);
-//
-//	for (int i = 0; i < lhsLen; i++)
-//	{
-//		result.data[i] = lhs[i];
-//	}
-//
-//	for (int i = 0; i < rhsLen; i++)
-//	{
-//		result.data[lhsLen + i] = rhs.data[i];
-//	}
-//
-//	result.data[lhsLen + rhsLen] = '\0';
-//	result.size = lhsLen + rhsLen;
-//
-//	return result;
-//}
+String operator+(const char* lhs, const String& rhs)
+{
+	int lhsLen = strlen(lhs);
+        int rhsLen = rhs.getLength();
+
+	String result;
+	result.reSize(lhsLen + rhsLen + 1);
+
+	for (int i = 0; i < lhsLen; i++)
+	{
+		result.data[i] = lhs[i];
+	}
+
+	for (int i = 0; i < rhsLen; i++)
+	{
+		result.data[lhsLen + i] = rhs.data[i];
+	}
+
+	result.data[lhsLen + rhsLen] = '\0';
+	result.size = lhsLen + rhsLen;
+
+	return result;
+}
