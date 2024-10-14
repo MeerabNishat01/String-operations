@@ -445,3 +445,16 @@ String operator+(const char* lhs, const String& rhs)
 
 	return result;
 }
+String operator-(const String& substr)
+{
+        String result = *this;
+        char* found = strstr(result.data, substr.data);
+        while (found != nullptr) 
+	{
+            int newLength = result.length - substr.length;
+
+            memmove(found, found + substr.length, strlen(found + substr.length) + 1);
+            result.length = newLength;
+            found = strstr(result.data, substr.data);
+        }
+
